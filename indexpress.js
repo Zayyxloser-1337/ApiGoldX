@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  if (req.method !== 'POST' && req.method !== 'GET') {
+  if (req.method !== 'GET' && req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' })
   }
 
@@ -22,9 +22,9 @@ export default async function handler(req, res) {
     if (!usdToIdr) {
       throw new Error('Failed to fetch USD to IDR rate')
     }
+
     const GRAM_PER_OUNCE = 31.1034768
-    const pricePerGramUsd = goldUsdPerOunce / GRAM_PER_OUNCE
-    const pricePerGramIdr = pricePerGramUsd * usdToIdr
+    const pricePerGramIdr = (goldUsdPerOunce / GRAM_PER_OUNCE) * usdToIdr
 
     res.status(200).json({
       status: true,
