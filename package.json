@@ -1,0 +1,10 @@
+{
+  "name": "apigoldx",
+  "private": true,
+  "scripts": {
+    "vercel-build": "echo 'no build needed'"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
